@@ -8,7 +8,7 @@ class Stack:
         return len(self.items) == 0
 
     def push(self, item):
-        if len(self.items) < self.limit:
+        if not self.full():
             self.items.append(item)
 
     def pop(self):
@@ -16,8 +16,8 @@ class Stack:
             return self.items.pop()
 
     def peek(self):
-        last = self.items.pop()
-        self.items.append(last)
+        last = self.pop()
+        self.push(last)
         return last
     
     def size(self):
